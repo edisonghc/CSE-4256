@@ -85,5 +85,23 @@ def g2016_not_g2014():
 # in the voting data, since this doesn't indicate a different party. You should return a set of strings. The strings should be the concatenation of
 # the first name, first intial of the middle name and last name. Also include the suffix and the end of the name, if the person has one.
 def diff_party():
-  pass
+  from collections import defaultdict
+    d = defaultdict(str)
+
+    with open("voter_data.txt") as f:
+        header = f.readline().split(',')
+        
+        for i in range(len(header)):
+            if header[i] == 'FIRSTNAME':
+                a = i
+            if header[i] == 'LASTNAME':
+                b = i
+            if header[i] == '082018-S':
+                c = i
+            if header[i] == 'PARTY':
+                d = i    
+
+        for voter in f:
+            voter = voter.split(',')
+                  
 
